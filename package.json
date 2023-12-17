@@ -1,0 +1,77 @@
+{
+  "name": "vscode-nestjs-prisma-snippets",
+  "displayName": "NestJS Prisma Snippets for VSCode Editor",
+  "description": "Snippets for NestJS and Prisma ORM in VSCode editor. This extension for Visual Studio Code adds snippets for NestJS and Prisma ORM. Now you can create your NestJS and Prisma ORM files faster and easier.",
+  "version": "1.0.0",
+  "icon": "icon.png",
+  "license": "MIT",
+  "publisher": "imgildev",
+  "author": {
+    "name": "Manuel Gil",
+    "url": "https://github.com/ManuelGil"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/manuelgil"
+  },
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "keywords": [
+    "autocomplete-functionality",
+    "autocomplete",
+    "boilerplate",
+    "express",
+    "extension",
+    "grammars-utility",
+    "grammars",
+    "javascript",
+    "js",
+    "nest",
+    "nestjs-snippet",
+    "nestjs-snippets",
+    "nestjs",
+    "nestjs",
+    "node",
+    "nodejs",
+    "orm-snippet",
+    "orm-snippets",
+    "orm",
+    "snippet",
+    "snippets-collection",
+    "snippets-collections",
+    "snippets-library",
+    "snippets-plugin",
+    "snippets",
+    "ts",
+    "prisma-orm-snippet",
+    "prisma-orm-snippets",
+    "prisma-orm",
+    "prisma-snippet",
+    "prisma-snippets",
+    "prisma",
+    "typescript",
+    "vscode-extension",
+    "vscode"
+  ],
+  "homepage": "https://github.com/ManuelGil/vscode-nestjs-prisma-snippets",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ManuelGil/vscode-nestjs-prisma-snippets"
+  },
+  "bugs": {
+    "url": "https://github.com/ManuelGil/vscode-nestjs-prisma-snippets/issues"
+  },
+  "extensionPack": [
+    "imgildev.vscode-nestjs-snippets-extension"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "path": "./snippets/common.code-snippets"
+      }
+    ]
+  }
+}
