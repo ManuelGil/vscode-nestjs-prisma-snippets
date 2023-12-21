@@ -1,207 +1,207 @@
 {
   "Prisma Service": {
     "prefix": ["ns_prisma_service", "PrismaService", "Prisma Service"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["import { Injectable, OnModuleInit } from '@nestjs/common';", "import { PrismaClient } from '@prisma/client';", "", "@Injectable()", "export class PrismaService extends PrismaClient implements OnModuleInit {", "  async onModuleInit() {", "    await this.\\$connect();", "  }", "}", ""]
   },
   "inject prismaService": {
     "prefix": ["ns_prisma_inject_prisma_service", "inject prismaService"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["constructor(private readonly prismaService: PrismaService) {}", ""]
   },
   "export default Prisma": {
     "prefix": ["ns_prisma_export_default_prisma", "export default Prisma"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["import { PrismaClient } from '@prisma/client';", "", "export default const prisma = new PrismaClient();", ""]
   },
   "id Int": {
     "prefix": ["ns_prisma_id", "id Int"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "id Int @id @default(autoincrement())"
   },
   "updatedAt": {
     "prefix": ["ns_prisma_updated_at", "updatedAt"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "updatedAt DateTime @updatedAt"
   },
   "default now": {
     "prefix": ["ns_prisma_default_now", "default now"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "createdAt DateTime @default(now())"
   },
   "default dbgenerated": {
     "prefix": ["ns_prisma_default_dbgenerated", "default dbgenerated"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "createdAt DateTime @default(dbgenerated())"
   },
   "default cuid": {
     "prefix": ["ns_prisma_default_cuid", "default cuid"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "id String @id @default(cuid())"
   },
   "default uuid": {
     "prefix": ["ns_prisma_default_uuid", "default uuid"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "id String @id @default(uuid())"
   },
   "default sequential": {
     "prefix": ["ns_prisma_default_sequential", "default sequential"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "id Int @id @default(sequential())"
   },
   "default random": {
     "prefix": ["ns_prisma_default_random", "default random"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "id Int @id @default(random())"
   },
   "default anonymous": {
     "prefix": ["ns_prisma_default_anonymous", "default anonymous"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "id Int @id @default(anonymous())"
   },
   "relation": {
     "prefix": ["ns_prisma_relation", "relation"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "@relation(fields: [$1Id], references: [id])"
   },
   "unique": {
     "prefix": ["ns_prisma_unique", "unique"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "@@unique([$1])"
   },
   "map": {
     "prefix": ["ns_prisma_map", "map"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "@@map($1)"
   },
   "schema": {
     "prefix": ["ns_prisma_schema", "schema"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "@@schema($1)"
   },
   "create": {
     "prefix": ["ns_prisma_create", "create"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.create({", "  data: {", "    $2", "  }", "});", ""]
   },
   "findMany": {
     "prefix": ["ns_prisma_find_many", "findMany"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.findMany({", "  $2", "});", ""]
   },
   "findUnique": {
     "prefix": ["ns_prisma_find_unique", "findUnique"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.findUnique({", "  $2", "});", ""]
   },
   "update": {
     "prefix": ["ns_prisma_update", "update"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.update({", "  $2", "});", ""]
   },
   "delete": {
     "prefix": ["ns_prisma_delete", "delete"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.delete({", "  $2", "});", ""]
   },
   "deleteMany": {
     "prefix": ["ns_prisma_delete_many", "deleteMany"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.deleteMany({", "  $2", "});", ""]
   },
   "upsert": {
     "prefix": ["ns_prisma_upsert", "upsert"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.upsert({", "  $2", "});", ""]
   },
   "aggregate": {
     "prefix": ["ns_prisma_aggregate", "aggregate"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.aggregate({", "  $2", "});", ""]
   },
   "count": {
     "prefix": ["ns_prisma_count", "count"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.count({", "  $2", "});", ""]
   },
   "groupBy": {
     "prefix": ["ns_prisma_group_by", "groupBy"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.groupBy({", "  $2", "});", ""]
   },
   "findFirst": {
     "prefix": ["ns_prisma_findFirst", "findFirst"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["await this.prismaService.$1.findFirst({", "  $2", "});", ""]
   },
   "orderBy": {
     "prefix": ["ns_prisma_order_by", "orderBy"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["orderBy: {", "  $1: $2", "}", ""]
   },
   "where": {
     "prefix": ["ns_prisma_where", "where"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["where: {", "  $1: $2", "}", ""]
   },
   "skip take": {
     "prefix": ["ns_prisma_skip_take", "skip take"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "skip: $1, take: $2"
   },
   "include": {
     "prefix": ["ns_prisma_include", "include"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["include: {", "  $1: $2", "}", ""]
   },
   "select": {
     "prefix": ["ns_prisma_select", "select"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["select: {", "  $1: $2", "}", ""]
   },
   "transaction": {
     "prefix": ["ns_prisma_transaction", "transaction"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": ["this.prismaService.\\$transaction([", "  $1", "]);", ""]
   },
   "queryRaw": {
     "prefix": ["ns_prisma_query_raw", "queryRaw"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "this.prismaService.\\$queryRaw($1);"
   },
   "executeRaw": {
     "prefix": ["ns_prisma_execute_raw", "executeRaw"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "this.prismaService.\\$executeRaw($1);"
   },
   "use": {
     "prefix": ["ns_prisma_use", "use"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "this.prismaService.\\$use($1);"
   },
   "on": {
     "prefix": ["ns_prisma_on", "on"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "this.prismaService.\\$on($1);"
   },
   "disconnect": {
     "prefix": ["ns_prisma_disconnect", "disconnect"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "this.prismaService.\\$disconnect();"
   },
   "connect": {
     "prefix": ["ns_prisma_connect", "connect"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "this.prismaService.\\$connect();"
   },
   "queryRawUnsafe": {
     "prefix": ["ns_prisma_query_raw_unsafe", "queryRawUnsafe"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "this.prismaService.\\$queryRawUnsafe($1);"
   },
   "executeRawUnsafe": {
     "prefix": ["ns_prisma_execute_raw_unsafe", "executeRawUnsafe"],
-    "scope": "plaintext,typescript,typescriptreact",
+    "scope": "typescript",
     "body": "this.prismaService.\\$executeRawUnsafe($1);"
   }
 }
