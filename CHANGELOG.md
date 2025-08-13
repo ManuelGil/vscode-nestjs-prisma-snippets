@@ -1,11 +1,21 @@
 # Change Log
 
-All notable changes to the "NestJS Prisma Snippets for VSCode Editor" extension will be documented in this file.
+All notable changes to the "NestJS Prisma Snippets" extension will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.2.0] - 2024-08-12
+
+### Changed
+
+- Change extension name from "NestJS Prisma Snippets for VSCode Editor" to "NestJS Prisma Snippets" in package.json and README.md
+- Update README.md to provide a clearer overview and installation instructions
+- Modify CHANGELOG.md to reflect the new extension name
+- Enhance snippets with descriptions for better context and usability
+- Adjust FUNDING.yml to include new funding options
 
 ## [1.1.0] - 2024-01-26
 
@@ -23,7 +33,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
-[unreleased]: https://github.com/ManuelGil/vscode-nestjs-prisma-snippets/compare/v1.1.0...HEAD
+[unreleased]: https://github.com/ManuelGil/vscode-nestjs-prisma-snippets/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/ManuelGil/vscode-nestjs-prisma-snippets/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/ManuelGil/vscode-nestjs-prisma-snippets/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/ManuelGil/vscode-nestjs-prisma-snippets/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ManuelGil/vscode-nestjs-prisma-snippets/releases/tag/v1.0.0

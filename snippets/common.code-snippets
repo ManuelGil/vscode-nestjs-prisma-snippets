@@ -2,206 +2,229 @@
   "Prisma Service": {
     "prefix": ["ns_prisma_service", "PrismaService", "Prisma Service"],
     "scope": "typescript",
-    "body": ["import { Injectable, OnModuleInit } from '@nestjs/common';", "import { PrismaClient } from '@prisma/client';", "", "@Injectable()", "export class PrismaService extends PrismaClient implements OnModuleInit {", "  async onModuleInit() {", "    await this.\\$connect();", "  }", "}", ""]
+    "description": "NestJS PrismaService with connect on init and disconnect on destroy.",
+    "body": ["import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';", "import { PrismaClient } from '@prisma/client';", "", "@Injectable()", "export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {", "  async onModuleInit() {", "    await this.\\$connect();", "  }", "", "  async onModuleDestroy() {", "    await this.\\$disconnect();", "  }", "}", ""]
   },
   "Prisma inject prismaService": {
     "prefix": ["ns_prisma_inject_prisma_service", "inject prismaService"],
     "scope": "typescript",
+    "description": "Constructor injection of PrismaService.",
     "body": ["constructor(private readonly prismaService: PrismaService) {}", ""]
   },
   "Prisma export default Prisma": {
     "prefix": ["ns_prisma_export_default_prisma", "export default Prisma"],
     "scope": "typescript",
-    "body": ["import { PrismaClient } from '@prisma/client';", "", "export default const prisma = new PrismaClient();", ""]
+    "description": "Create a PrismaClient instance and export it as default.",
+    "body": ["import { PrismaClient } from '@prisma/client';", "", "const prisma = new PrismaClient();", "", "export default prisma;", ""]
   },
   "Prisma id Int": {
     "prefix": ["ns_prisma_id", "id Int"],
-    "scope": "typescript",
+    "scope": "prisma",
+    "description": "Prisma schema: integer auto-increment primary key.",
     "body": "id Int @id @default(autoincrement())"
   },
   "Prisma updatedAt": {
     "prefix": ["ns_prisma_updated_at", "updatedAt"],
-    "scope": "typescript",
+    "scope": "prisma",
+    "description": "Prisma schema: updatedAt field with @updatedAt.",
     "body": "updatedAt DateTime @updatedAt"
   },
   "Prisma default now": {
     "prefix": ["ns_prisma_default_now", "default now"],
-    "scope": "typescript",
+    "scope": "prisma",
+    "description": "Prisma schema: createdAt with default now().",
     "body": "createdAt DateTime @default(now())"
   },
   "Prisma default dbgenerated": {
     "prefix": ["ns_prisma_default_dbgenerated", "default dbgenerated"],
-    "scope": "typescript",
+    "scope": "prisma",
+    "description": "Prisma schema: createdAt with dbgenerated().",
     "body": "createdAt DateTime @default(dbgenerated())"
   },
   "Prisma default cuid": {
     "prefix": ["ns_prisma_default_cuid", "default cuid"],
-    "scope": "typescript",
+    "scope": "prisma",
+    "description": "Prisma schema: string id with cuid().",
     "body": "id String @id @default(cuid())"
   },
   "Prisma default uuid": {
     "prefix": ["ns_prisma_default_uuid", "default uuid"],
-    "scope": "typescript",
+    "scope": "prisma",
+    "description": "Prisma schema: string id with uuid().",
     "body": "id String @id @default(uuid())"
-  },
-  "Prisma default sequential": {
-    "prefix": ["ns_prisma_default_sequential", "default sequential"],
-    "scope": "typescript",
-    "body": "id Int @id @default(sequential())"
-  },
-  "Prisma default random": {
-    "prefix": ["ns_prisma_default_random", "default random"],
-    "scope": "typescript",
-    "body": "id Int @id @default(random())"
-  },
-  "Prisma default anonymous": {
-    "prefix": ["ns_prisma_default_anonymous", "default anonymous"],
-    "scope": "typescript",
-    "body": "id Int @id @default(anonymous())"
   },
   "Prisma relation": {
     "prefix": ["ns_prisma_relation", "relation"],
-    "scope": "typescript",
+    "scope": "prisma",
+    "description": "Prisma schema: relation attribute template.",
     "body": "@relation(fields: [$1Id], references: [id])"
   },
   "Prisma unique": {
     "prefix": ["ns_prisma_unique", "unique"],
-    "scope": "typescript",
+    "scope": "prisma",
+    "description": "Prisma schema: @@unique on one or more fields.",
     "body": "@@unique([$1])"
   },
   "Prisma map": {
     "prefix": ["ns_prisma_map", "map"],
-    "scope": "typescript",
-    "body": "@@map($1)"
+    "scope": "prisma",
+    "description": "Prisma schema: @@map to set custom table name.",
+    "body": "@@map(\"$1\")"
   },
   "Prisma schema": {
     "prefix": ["ns_prisma_schema", "schema"],
-    "scope": "typescript",
-    "body": "@@schema($1)"
+    "scope": "prisma",
+    "description": "Prisma schema: @@schema to set DB schema (e.g. PostgreSQL).",
+    "body": "@@schema(\"$1\")"
   },
   "Prisma create": {
     "prefix": ["ns_prisma_create", "create"],
     "scope": "typescript",
+    "description": "Prisma Client create() call template.",
     "body": ["await this.prismaService.$1.create({", "  data: {", "    $2", "  }", "});", ""]
   },
   "Prisma findMany": {
     "prefix": ["ns_prisma_find_many", "findMany"],
     "scope": "typescript",
+    "description": "Prisma Client findMany() call template.",
     "body": ["await this.prismaService.$1.findMany({", "  $2", "});", ""]
   },
   "Prisma findUnique": {
     "prefix": ["ns_prisma_find_unique", "findUnique"],
     "scope": "typescript",
+    "description": "Prisma Client findUnique() call template.",
     "body": ["await this.prismaService.$1.findUnique({", "  $2", "});", ""]
   },
   "Prisma update": {
     "prefix": ["ns_prisma_update", "update"],
     "scope": "typescript",
+    "description": "Prisma Client update() call template.",
     "body": ["await this.prismaService.$1.update({", "  $2", "});", ""]
   },
   "Prisma delete": {
     "prefix": ["ns_prisma_delete", "delete"],
     "scope": "typescript",
+    "description": "Prisma Client delete() call template.",
     "body": ["await this.prismaService.$1.delete({", "  $2", "});", ""]
   },
   "Prisma deleteMany": {
     "prefix": ["ns_prisma_delete_many", "deleteMany"],
     "scope": "typescript",
+    "description": "Prisma Client deleteMany() call template.",
     "body": ["await this.prismaService.$1.deleteMany({", "  $2", "});", ""]
   },
   "Prisma upsert": {
     "prefix": ["ns_prisma_upsert", "upsert"],
     "scope": "typescript",
+    "description": "Prisma Client upsert() call template.",
     "body": ["await this.prismaService.$1.upsert({", "  $2", "});", ""]
   },
   "Prisma aggregate": {
     "prefix": ["ns_prisma_aggregate", "aggregate"],
     "scope": "typescript",
+    "description": "Prisma Client aggregate() call template.",
     "body": ["await this.prismaService.$1.aggregate({", "  $2", "});", ""]
   },
   "Prisma count": {
     "prefix": ["ns_prisma_count", "count"],
     "scope": "typescript",
+    "description": "Prisma Client count() call template.",
     "body": ["await this.prismaService.$1.count({", "  $2", "});", ""]
   },
   "Prisma groupBy": {
     "prefix": ["ns_prisma_group_by", "groupBy"],
     "scope": "typescript",
+    "description": "Prisma Client groupBy() call template.",
     "body": ["await this.prismaService.$1.groupBy({", "  $2", "});", ""]
   },
   "Prisma findFirst": {
     "prefix": ["ns_prisma_findFirst", "findFirst"],
     "scope": "typescript",
+    "description": "Prisma Client findFirst() call template.",
     "body": ["await this.prismaService.$1.findFirst({", "  $2", "});", ""]
   },
   "Prisma orderBy": {
     "prefix": ["ns_prisma_order_by", "orderBy"],
     "scope": "typescript",
+    "description": "Prisma query fragment: orderBy.",
     "body": ["orderBy: {", "  $1: $2", "}", ""]
   },
   "Prisma where": {
     "prefix": ["ns_prisma_where", "where"],
     "scope": "typescript",
+    "description": "Prisma query fragment: where.",
     "body": ["where: {", "  $1: $2", "}", ""]
   },
   "Prisma skip take": {
     "prefix": ["ns_prisma_skip_take", "skip take"],
     "scope": "typescript",
+    "description": "Prisma query fragment: pagination (skip/take).",
     "body": "skip: $1, take: $2"
   },
   "Prisma include": {
     "prefix": ["ns_prisma_include", "include"],
     "scope": "typescript",
+    "description": "Prisma query fragment: include relations.",
     "body": ["include: {", "  $1: $2", "}", ""]
   },
   "Prisma select": {
     "prefix": ["ns_prisma_select", "select"],
     "scope": "typescript",
+    "description": "Prisma query fragment: select fields.",
     "body": ["select: {", "  $1: $2", "}", ""]
   },
   "Prisma transaction": {
     "prefix": ["ns_prisma_transaction", "transaction"],
     "scope": "typescript",
+    "description": "Prisma Client $transaction with an array of operations.",
     "body": ["this.prismaService.\\$transaction([", "  $1", "]);", ""]
   },
   "Prisma queryRaw": {
     "prefix": ["ns_prisma_query_raw", "queryRaw"],
     "scope": "typescript",
+    "description": "Execute raw SQL safely with parameterization.",
     "body": "this.prismaService.\\$queryRaw($1);"
   },
   "Prisma executeRaw": {
     "prefix": ["ns_prisma_execute_raw", "executeRaw"],
     "scope": "typescript",
+    "description": "Execute raw SQL safely (non-returning).",
     "body": "this.prismaService.\\$executeRaw($1);"
   },
   "Prisma use": {
     "prefix": ["ns_prisma_use", "use"],
     "scope": "typescript",
+    "description": "Register Prisma middleware with $use.",
     "body": "this.prismaService.\\$use($1);"
   },
   "Prisma on": {
     "prefix": ["ns_prisma_on", "on"],
     "scope": "typescript",
+    "description": "Listen to Prisma events with $on.",
     "body": "this.prismaService.\\$on($1);"
   },
   "Prisma disconnect": {
     "prefix": ["ns_prisma_disconnect", "disconnect"],
     "scope": "typescript",
+    "description": "Disconnect PrismaClient.",
     "body": "this.prismaService.\\$disconnect();"
   },
   "Prisma connect": {
     "prefix": ["ns_prisma_connect", "connect"],
     "scope": "typescript",
+    "description": "Connect PrismaClient.",
     "body": "this.prismaService.\\$connect();"
   },
   "Prisma queryRawUnsafe": {
     "prefix": ["ns_prisma_query_raw_unsafe", "queryRawUnsafe"],
     "scope": "typescript",
+    "description": "Unsafe: bypasses query sanitization. Prefer $queryRaw with Prisma.sql.",
     "body": "this.prismaService.\\$queryRawUnsafe($1);"
   },
   "Prisma executeRawUnsafe": {
     "prefix": ["ns_prisma_execute_raw_unsafe", "executeRawUnsafe"],
     "scope": "typescript",
+    "description": "Unsafe: bypasses query sanitization. Prefer $executeRaw with Prisma.sql.",
     "body": "this.prismaService.\\$executeRawUnsafe($1);"
   }
 }
